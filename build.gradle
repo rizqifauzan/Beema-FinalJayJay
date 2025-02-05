@@ -12,6 +12,16 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.11.4'
+
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.20.1'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.20.1'
+    implementation 'net.java.dev.jna:jna:5.12.1'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.5.0'
+    implementation group: 'org.json', name: 'json', version: '20250107'
+    testImplementation group: 'io.rest-assured', name: 'json-path', version: '5.5.0'
+    implementation 'io.rest-assured:json-schema-validator:5.5.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.27.2'
 }
 
 test {
