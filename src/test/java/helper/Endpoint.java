@@ -8,7 +8,7 @@ public class Endpoint {
 
     public static final String CREATE_USER = host_dummy + "user/create";
 
-    public static final String DELETE_USER = host_dummy + "users";
+    public static final String DELETE_USER = host_dummy + "user";
 
 
 }

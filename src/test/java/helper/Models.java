@@ -5,9 +5,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 
-//import static helper.Utility.generateRandomEmail;
-
-//import static helper.Utility.generateRandomEmail;
+import static helper.Utility.generateRandomEmail;
 
 
 public class Models {
@@ -15,8 +13,10 @@ public class Models {
 
     private static void setUpHeaders() {
         request = RestAssured.given()
-                .header( "Connection", "keep-alive" )
-                .header("Accept-Encoding", "gzip, deflate,br" )
+//                .header( "Connection", "keep-alive" )
+//                .header("Accept-Encoding", "gzip, deflate,br" )
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
                 .header("app-id", "63a804408eb0cb069b57e43a");
     }
 
@@ -28,17 +28,19 @@ public class Models {
     public static Response postCreateUser(String endpoint) {
         String firstName = "Bemaaa11";
         String lastName = "rachsss";
-        String email =  "bemaaa11123@testdata.com";
-        System.out.println("apa lewat sini");
+        String email = generateRandomEmail();
         JSONObject payload = new JSONObject();
-        payload.put("firsName", firstName);
+        payload.put("firstName", firstName);
         payload.put("lastName", lastName);
         payload.put("email", email);
-        System.out.println("apa lewat sini 2");
-//        System.out.println(payload);
-//        System.out.println(payload.toString());
 
         setUpHeaders();
         return request.body(payload.toString()).when().post(endpoint);
+    }
+
+    public static Response deleteUser(String endpoint, String user_id) {
+        setUpHeaders();
+        String finalEndpoint = endpoint + "/" + user_id;
+        return request.when().delete(finalEndpoint);
     }
 }

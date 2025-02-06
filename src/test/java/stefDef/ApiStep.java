@@ -40,8 +40,13 @@ public class ApiStep {
         apiPage.hitApiGetNewUser();
     }
 
- //   @Then("validation response body post create new user")
- //   public void validationResponseBodyPostCreateNewUser() {
- //       apiPage.validationResponseBodyPostCreteNewUser();
- //   }
+    @Then("validation response body post create new user")
+    public void validationResponseBodyPostCreateNewUser() {
+        apiPage.validationResponseBodyCreteNewUser();
+    }
+
+    @And("hit api delete new")
+    public void hitApiDeleteNew() {
+        apiPage.hitApiDeleteUser();
+    }
 }

@@ -12,5 +12,16 @@ Feature: Test Automation Rest Api
   Scenario: Test create new user normal
     Given prepare url valid for "CREATE_USER"
     And hit api post create new user
+    Then validation status code is equals 200
+    Then validation response body post create new user
+    Then validation response json with JSONSchema "post_create_new_user_normal.json"
+
+  @api
+  Scenario: Test delete user normal
+    Given prepare url valid for "CREATE_USER"
+    And hit api post create new user
+    Then  validation status code is equals 200
+    And hit api delete new
+    Then  validation status code is equals 204
 
 

@@ -9,8 +9,7 @@ import io.restassured.response.Response;
 
 import java.io.File;
 
-import static helper.Models.getUserById;
-import static helper.Models.postCreateUser;
+import static helper.Models.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -42,7 +41,7 @@ public class ApiPage {
 
     public  void hitApiGetNewUser(){
         res =postCreateUser(setURL);
-        System.out.println(res.getBody().asString());
+        System.out.println(res.getBody().prettyPrint());
     }
 
     public  void validationStatusCodeIsEquals(int status_code){
@@ -100,19 +99,21 @@ public class ApiPage {
         File JSONFile = Utility.getJSONSchemaFile(filename);
         res.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(JSONFile));
     }
-//    public void validationResponseBodyPostCreteNewUser(){
-//        JsonPath jsonPathEvaluator = res.jsonPath();
-//        Integer id = jsonPathEvaluator.get("id");
-//        String firstName = jsonPathEvaluator.get("name");
-//        String lastName = jsonPathEvaluator.get("lastName");
-//        String email = jsonPathEvaluator.get("email");
-//
-//        assertThat(id).isNotNull();
-//        assertThat(firstName).isNotNull();
-//        assertThat(lastName).isNotNull();
-//        assertThat(email).isNotNull();
-//
-//        global_id = Integer.toString(id);
-// //   }
+    public void validationResponseBodyCreteNewUser(){
+        JsonPath jsonPathEvaluator = res.jsonPath();
+        String id = jsonPathEvaluator.get("id");
+        String firstName = jsonPathEvaluator.getString("firstName");
+        String lastName = jsonPathEvaluator.getString("lastName");
+        String email = jsonPathEvaluator.getString("email");
 
+        assertThat(id).isNotNull();
+        assertThat(firstName).isNotNull();
+        assertThat(lastName).isNotNull();
+        assertThat(email).isNotNull();
+
+        global_id = id;
+    }
+    public  void hitApiDeleteUser(){
+        res =deleteUser(setURL,global_id);
+    }
 }
