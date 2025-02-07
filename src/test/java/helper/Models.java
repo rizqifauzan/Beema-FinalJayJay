@@ -43,4 +43,17 @@ public class Models {
         String finalEndpoint = endpoint + "/" + user_id;
         return request.when().delete(finalEndpoint);
     }
+
+    public static Response updateUser(String endpoint, String user_id) {
+        setUpHeaders();
+        String firstName = "Bemaaa11 Edit";
+        String lastName = "rachsss";
+        String email = "iPS7okhM4S@testdata.com";
+        JSONObject payload = new JSONObject();
+        payload.put("firstName", firstName);
+        payload.put("lastName", lastName);
+        payload.put("email", email);
+        String finalEndpoint = endpoint + "/" + user_id;
+        return request.body(payload.toString()).when().put(finalEndpoint);
+    }
 }

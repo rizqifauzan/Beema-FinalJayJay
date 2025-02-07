@@ -21,7 +21,21 @@ Feature: Test Automation Rest Api
     Given prepare url valid for "CREATE_USER"
     And hit api post create new user
     Then  validation status code is equals 200
+    Then validation response body post create new user
+    Given prepare url valid for "DELETE_USER"
     And hit api delete new
-    Then  validation status code is equals 204
+    Then validation status code is equals 200
+
+    @api
+    Scenario: Test update user normal
+      Given prepare url valid for "CREATE_USER"
+      And hit api post create new user
+      Then  validation status code is equals 200
+      Then validation response body post create new user
+      Given prepare url valid for "UPDATE_USER"
+      And hit api update data
+      Then validation status code is equals 200
+      Then validation response body update user
+
 
 

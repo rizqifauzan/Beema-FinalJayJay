@@ -29,6 +29,9 @@ public class ApiPage {
             case "DELETE_USER":
                 setURL = Endpoint.DELETE_USER;
                 break;
+            case "UPDATE_USER":
+                setURL = Endpoint.UPDATE_USER;
+                break;
             default:
                 System.out.println("input right url");
         }
@@ -41,7 +44,6 @@ public class ApiPage {
 
     public  void hitApiGetNewUser(){
         res =postCreateUser(setURL);
-        System.out.println(res.getBody().prettyPrint());
     }
 
     public  void validationStatusCodeIsEquals(int status_code){
@@ -115,5 +117,22 @@ public class ApiPage {
     }
     public  void hitApiDeleteUser(){
         res =deleteUser(setURL,global_id);
+    }
+
+    public  void hitApiUpdateUser(){
+        res =updateUser(setURL,global_id);
+    }
+
+    public void validationResponseBodyUpdateUser(){
+        JsonPath jsonPathEvaluator = res.jsonPath();
+        String id = jsonPathEvaluator.get("id");
+        String firstName = jsonPathEvaluator.getString("firstName");
+        String lastName = jsonPathEvaluator.getString("lastName");
+        String email = jsonPathEvaluator.getString("email");
+
+        assertThat(id).isNotNull();
+        assertThat(firstName).isNotNull();
+        assertThat(lastName).isNotNull();
+        assertThat(email).isNotNull();
     }
 }

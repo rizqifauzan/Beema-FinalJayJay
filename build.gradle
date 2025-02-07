@@ -25,5 +25,29 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnit()
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+tasks.register('apiTest') {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.test.output
+            args = [
+                    '--plugin', 'pretty',
+                    '--plugin', 'html:reports/cucumber-api-report.html',
+                    '--glue', 'stepDef',
+                    '--tags', System.getProperty("cucumber.filter.tags", "@api"),
+                    'src/test/resources/features'
+            ]
+        }
+    }
 }

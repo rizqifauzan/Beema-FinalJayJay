@@ -10,5 +10,7 @@ public class Endpoint {
 
     public static final String DELETE_USER = host_dummy + "user";
 
+    public static final String UPDATE_USER = host_dummy + "user";
+
 
 }
