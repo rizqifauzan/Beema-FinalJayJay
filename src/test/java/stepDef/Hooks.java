@@ -1,11 +1,13 @@
-package stefDef;
+package stepDef;
 
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
-import io.cucumber.java.*;
+
+import static helper.Utility.quitDriver;
+import static helper.Utility.startDriver;
 
 
 public class Hooks {
@@ -22,11 +24,13 @@ public class Hooks {
 
     @Before
     public void beforeTest() {
+        startDriver();
 
     }
 
     @After
-    public void afterTest() {
-
+    public void afterTest() throws InterruptedException {
+        Thread.sleep(3000);
+        quitDriver();
     }
 }
