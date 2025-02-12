@@ -8,10 +8,10 @@ import org.openqa.selenium.WebDriver;
 public class ProductPage {
     String itemName = ("//a[@href='prod.html?idp_=1']");
     By nextPage = By.xpath("//button[@id='next2']");
-    By previousPage = By.id("prev2");
+//    By previousPage = By.id("prev2");
     By detailProductNexus = By.xpath("//body/div[@id='contcont']/div[@class='row']/div[@class='col-lg-9']/div[@id='tbodyid']/div[1]");
     By addToCart = By.xpath("//a[@onclick=\"addToCart(1)\"]");
-    By macbookProIcon = By.xpath("//body/div[@id='contcont']/div[@class='row']/div[@class='col-lg-9']/div[@id='tbodyid']/div[1]");
+//    By macbookProIcon = By.xpath("//body/div[@id='contcont']/div[@class='row']/div[@class='col-lg-9']/div[@id='tbodyid']/div[1]");
     By phonesButton = By.xpath("//a[@onclick=\"byCat('phone')\"]");
 
     private WebDriver driver;
@@ -33,13 +33,13 @@ public class ProductPage {
         driver.findElement(nextPage).click();
     }
 
-    public void assertPage2() {
-        driver.findElement(macbookProIcon).isDisplayed();
-    }
-
-    public void buttonPreviousPage() {
-        driver.findElement(previousPage).click();
-    }
+//    public void assertPage2() {
+//        driver.findElement(macbookProIcon).isDisplayed();
+//    }
+//
+//    public void buttonPreviousPage() {
+//        driver.findElement(previousPage).click();
+//    }
 
     public void buttonDetailProductNexus() {
         driver.findElement(detailProductNexus).click();

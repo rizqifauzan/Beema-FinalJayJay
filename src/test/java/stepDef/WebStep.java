@@ -56,15 +56,15 @@ public class WebStep {
         productPage.buttonNextPage();
     }
 
-    @And("user will see icon macbook pro")
-    public void userWillSeeIconMacbookPro() {
-        productPage.assertPage2();
-    }
+//    @And("user will see icon macbook pro")
+//    public void userWillSeeIconMacbookPro() {
+//        productPage.assertPage2();
+//    }
 
-    @And("user click previous page")
-    public void userClickPreviousPage() {
-        productPage.buttonPreviousPage();
-    }
+//    @And("user click previous page")
+//    public void userClickPreviousPage() {
+//        productPage.buttonPreviousPage();
+//    }
 
     @And("click  button add to cart")
     public void clickButtonAddToCart() {

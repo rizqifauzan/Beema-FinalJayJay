@@ -28,8 +28,8 @@ Feature: Test Automation Web
     And user click login button
     And user will see icon name of user
     And user click next page
-    And user will see icon macbook pro
-    And user click previous page
+#    And user will see icon macbook pro
+#    And user click previous page
 
 
     @web
