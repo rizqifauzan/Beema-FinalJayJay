@@ -28,19 +28,20 @@ Feature: Test Automation Web
     And user click login button
     And user will see icon name of user
     And user click next page
-#    And user will see icon macbook pro
-#    And user click previous page
+    And user will see button previous page
+    And user click previous page
 
 
     @web
-    Scenario: Test detail product and add to cart normal
+#  //TODO: Need Help
+  Scenario: Test detail product and add to cart normal
       Given : open web login page
       And user click button login
       And user input username "bimarachmatsetiawan@gmail.com"
       And user input password "11September"
       And user click login button
       And user will see icon name of user
-      And click detail item "Samsung galaxy 6"
+      And click detail item
       And click  button add to cart
 
       @web

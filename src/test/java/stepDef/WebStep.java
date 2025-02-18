@@ -1,5 +1,6 @@
 package stepDef;
 
+import helper.Utility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import pages.ProductPage;
@@ -14,6 +15,7 @@ public class WebStep {
 
     public WebStep(){
         this.webPage = new WebPage();
+        productPage = new ProductPage(Utility.driver);
     }
 
     @Given(": open web login page")
@@ -52,32 +54,33 @@ public class WebStep {
     }
 
     @And("user click next page")
-    public void userClickNextPage() {
+    public void userClickNextPage()throws InterruptedException {
         productPage.buttonNextPage();
     }
 
-//    @And("user will see icon macbook pro")
-//    public void userWillSeeIconMacbookPro() {
-//        productPage.assertPage2();
-//    }
+    @And("user will see button previous page")
+    public void userWillSeeButtonPreviousPage() {
+        productPage.assertPage2();
+    }
 
-//    @And("user click previous page")
-//    public void userClickPreviousPage() {
-//        productPage.buttonPreviousPage();
-//    }
+    @And("user click previous page")
+    public void userClickPreviousPage()throws InterruptedException {
+        productPage.buttonPreviousPage();
+    }
 
     @And("click  button add to cart")
     public void clickButtonAddToCart() {
-        productPage.addToCart();
-    }
+        productPage.addToCart();}
 
     @And("user click phones button")
-    public void userClickPhonesButton() {
+    public void userClickPhonesButton()throws InterruptedException {
         productPage.assertPhonesButton();
     }
 
-    @And("click detail item {string}")
-    public void clickDetailItem(String item) {
-        productPage.clickItem();
+    @And("click detail item")
+    public void clickDetailItem(String item)throws InterruptedException {
+        productPage.clickItem(item);
     }
+
+
 }
