@@ -41,7 +41,7 @@ Feature: Test Automation Web
       And user input password "11September"
       And user click login button
       And user will see icon name of user
-      And click detail item
+      And click detail item "Samsung galaxy s6"
       And click  button add to cart
 
       @web
