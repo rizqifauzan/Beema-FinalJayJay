@@ -1,7 +1,7 @@
 Feature: Test Automation Web
 
   @web
-  Scenario: Test login normal web
+  Scenario: Test Login normal web
     Given : open web login page
     And user click button login
     And user input username "bimarachmatsetiawan@gmail.com"
@@ -41,7 +41,7 @@ Feature: Test Automation Web
       And user input password "11September"
       And user click login button
       And user will see icon name of user
-      And click detail item
+      And click detail item "Samsung galaxy s6"
       And click  button add to cart
 
       @web

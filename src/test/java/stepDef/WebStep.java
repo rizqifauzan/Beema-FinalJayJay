@@ -77,10 +77,15 @@ public class WebStep {
         productPage.assertPhonesButton();
     }
 
-    @And("click detail item")
-    public void clickDetailItem(String item)throws InterruptedException {
-        productPage.clickItem(item);
+    @And("click detail item {string}")
+    public void clickDetailItem(String item) throws InterruptedException {
+            productPage.clickItem(item);
     }
+//
+//    @And("click detail item(String)")
+//    public void clickDetailItem(String item)throws InterruptedException {
+//        productPage.clickItem(item);
+//    }
 
 
 }
