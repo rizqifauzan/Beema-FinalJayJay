@@ -4,7 +4,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 import static helper.Utility.driver;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WebPage {
     By button_login = By.id("login2");

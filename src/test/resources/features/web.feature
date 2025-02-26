@@ -33,7 +33,6 @@ Feature: Test Automation Web
 
 
     @web
-#  //TODO: Need Help
   Scenario: Test detail product and add to cart normal
       Given : open web login page
       And user click button login

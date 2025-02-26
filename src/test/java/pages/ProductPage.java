@@ -2,13 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import static helper.Utility.driver;
 
 public class ProductPage {
-    String itemName = ("//a[@href='prod.html?idp_=1']");
     By nextPage = By.id("next2");
     By previousPage = By.id("prev2");
-//    By detailProductNexus = By.xpath("//body/div[@id='contcont']/div[@class='row']/div[@class='col-lg-9']/div[@id='tbodyid']/div[1]");
     By addToCart = By.xpath("//a[@onclick=\"addToCart(1)\"]");
     By phonesButton = By.xpath("//a[@onclick=\"byCat('phone')\"]");
 

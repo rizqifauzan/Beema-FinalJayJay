@@ -81,11 +81,4 @@ public class WebStep {
     public void clickDetailItem(String item) throws InterruptedException {
             productPage.clickItem(item);
     }
-//
-//    @And("click detail item(String)")
-//    public void clickDetailItem(String item)throws InterruptedException {
-//        productPage.clickItem(item);
-//    }
-
-
 }
