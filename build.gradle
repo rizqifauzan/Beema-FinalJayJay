@@ -54,3 +54,19 @@ tasks.register('apiTest') {
         }
     }
 }
+tasks.register('webTest') {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.test.output
+            args = [
+                    '--plugin', 'pretty',
+                    '--plugin', 'html:reports/cucumber-api-report.html',
+                    '--glue', 'stepDef',
+                    '--tags', System.getProperty("cucumber.filter.tags", "@web"),
+                    'src/test/resources/features'
+            ]
+        }
+    }
+}

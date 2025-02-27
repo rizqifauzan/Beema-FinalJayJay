@@ -1,3 +1,4 @@
+@beema
 Feature: Test Automation Web
 
   @web
