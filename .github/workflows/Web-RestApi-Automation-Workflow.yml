@@ -1,0 +1,53 @@
+name: Web-RestApi Automation Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Download repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Setup Java
+      - name: Set up JDK 22
+        uses: actions/setup-java@v4
+        with:
+          java-version: '22'
+          distribution: 'temurin'
+
+      # Install browser
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1.7.3
+
+      # Setup Gradle Wrapper
+      - name: Setup Gradlew
+        run: chmod +x gradlew
+
+       # Archive Test Result
+      - name: Archive Test Result
+        uses: actions/upload-artifact@v4.5.0
+        if: always()
+        with:
+          name: Cucumber Report
+          path: reports
+
+      # Deploy to Github Pages
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+          PUBLISH_DIR: reports
+
+
+      # Execute Gradle command for running api test
+      - name: Execute Test
+        run: ./gradlew apiTest
