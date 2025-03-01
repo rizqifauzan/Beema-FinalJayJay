@@ -24,12 +24,19 @@ jobs:
           distribution: 'temurin'
 
       # Install browser
-      - name: Setup Chrome
+      - name: Setup Chrome with extra capabilities
         uses: browser-actions/setup-chrome@v1.7.3
+        with:
+          chrome-version: latest
 
       # Setup Gradle Wrapper
       - name: Setup Gradlew
-        run: chmod +x gradlew
+        run: |
+          chmod +x gradlew
+          ./gradlew build
+
+      - name: Run test
+        run: ./gradlew clean test
 
        # Archive Test Result
       - name: Archive Test Result
@@ -47,7 +54,3 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           PUBLISH_DIR: reports
 
-
-      # Execute Gradle command for running api test
-      - name: Execute Test
-        run: ./gradlew apiTest
