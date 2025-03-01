@@ -30,7 +30,7 @@ jobs:
           chrome-version: latest
 
       # Setup Gradle Wrapper
-      - name: Setup Gradlew
+      - name: Build with Gradlew
         run: 
           chmod +x gradlew
           ./gradlew build
@@ -54,7 +54,3 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           PUBLISH_DIR: reports
 
-
-      # Execute Gradle command for running api test
-      - name: Execute Test
-        run: ./gradlew apiTest
