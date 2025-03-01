@@ -30,8 +30,8 @@ jobs:
           chrome-version: latest
 
       # Setup Gradle Wrapper
-      - name: Build with Gradlew
-        run: 
+      - name: Setup Gradlew
+        run: |
           chmod +x gradlew
           ./gradlew build
 
