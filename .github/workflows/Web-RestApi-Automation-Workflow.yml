@@ -33,10 +33,9 @@ jobs:
       - name: Setup Gradlew
         run: |
           chmod +x gradlew
-          ./gradlew build
 
       - name: Run test
-        run: ./gradlew clean apiTest
+        run: ./gradlew apiTest
 
        # Archive Test Result
       - name: Archive Test Result
