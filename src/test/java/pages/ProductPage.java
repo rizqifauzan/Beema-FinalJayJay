@@ -16,7 +16,7 @@ public class ProductPage {
     }
 
     public String generateLocator(String itemName){
-        String locator = "//a[.='"+ itemName + "']";
+        String locator = "//a[.='"+ itemName + "']/parent::h4/parent::div/parent::div/a";
         return locator;
     }
 
